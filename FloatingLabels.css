@@ -1,0 +1,95 @@
+@charset "UTF-8";
+/** Floating Labels | V 1.5 */
+body {
+  display: flex;
+  flex-align: center;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+.floating-labels {
+  margin: 2rem 0;
+  /**
+  * Make the field a flex-container, reverse the order so label is on top.
+  */
+}
+.floating-labels .form-group {
+  display: flex;
+  flex-flow: column-reverse;
+  margin-bottom: 1rem;
+  /**
+  * Add a transition to the label and input.
+  * I'm not even sure that touch-action: manipulation works on
+  * inputs, but hey, it's new and cool and could remove the 
+  * pesky delay.
+  */
+  /**
+  * Translate down and scale the label up to cover the placeholder,
+  * when following an input (with placeholder-shown support).
+  * Also make sure the label is only on one row, at max 2/3rds of the
+  * field—to make sure it scales properly and doesn't wrap.
+  */
+}
+.floating-labels .form-group label, .floating-labels .form-group input {
+  transition: all 0.2s;
+  touch-action: manipulation;
+}
+.floating-labels .form-group input {
+  font-size: 1.5rem;
+  border: 0;
+  border-bottom: 0.1rem solid #ccc;
+  -webkit-appearance: none;
+  padding: 1rem;
+  cursor: text;
+  /**
+  * Target focussed input
+  **/
+  /**
+  * Target un-focussed input placeholder, remove opacity until focussed
+  **/
+  /**
+  * Target an input that has text in it, remove placeholder opacity
+  **/
+  /**
+  * When the element is focused, remove the label transform.
+  * Also, do this when the placeholder is _not_ shown, i.e. when 
+  * there's something in the input at all.
+  */
+}
+.floating-labels .form-group input:focus {
+  outline: 0;
+  border-bottom: 0.3rem solid blue;
+}
+.floating-labels .form-group input::-webkit-input-placeholder {
+  opacity: 0;
+}
+.floating-labels .form-group input:focus::-webkit-input-placeholder {
+  opacity: 1;
+}
+.floating-labels .form-group input:not(:empty)::-webkit-input-placeholder {
+  opacity: 0;
+}
+.floating-labels .form-group input:focus + label {
+  transform: translate(0, 0) scale(1);
+  cursor: pointer;
+  color: blue;
+  margin-bottom: 0.5rem;
+  margin-left: 0;
+}
+.floating-labels .form-group input + label {
+  cursor: text;
+  max-width: 66.666%;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  transform-origin: left bottom;
+  transform: translate(0, 2.125rem) scale(1.5);
+}
+.floating-labels .form-group label {
+  text-transform: uppercase;
+  letter-spacing: 0.05rem;
+  color: inherit;
+  margin-left: 0.5rem;
+}
+
+/*# sourceMappingURL=FloatingLabels.css.map*/
