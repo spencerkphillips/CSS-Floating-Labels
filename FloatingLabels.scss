@@ -1,14 +1,5 @@
 /** Floating Labels | V 1.5 */
 
-body{
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-align: center;
-    flex-align: center;
-    padding-top: 4rem;
-    padding-bottom: 4rem;
-}
-
 .floating-labels{
     // Replaces `<form>` stylizations
     margin: 2rem 0;
@@ -29,12 +20,12 @@ body{
         * pesky delay.
         */
 
-        label, input{
+        label, input, textarea{
             transition: all 0.2s;
             touch-action: manipulation;
         }
 
-        input{
+        input,textarea{
             font-size: 1.5rem;
             border: 0;
             border-bottom: .1rem solid #ccc;
@@ -89,7 +80,7 @@ body{
         * Also make sure the label is only on one row, at max 2/3rds of the
         * field—to make sure it scales properly and doesn't wrap.
         */
-        input+label {
+        input+label, textarea+label {
             cursor: text;
             max-width: 66.666%;
             white-space: nowrap;
