@@ -97,4 +97,39 @@
             margin-left: .5rem;
         }
     }
+
+    .select-group {
+        select {
+            font-size: 1.5rem;
+            border: 0;
+            border-bottom: .1rem solid #ccc;
+            -webkit-appearance: none;
+            padding: 1rem;
+            cursor: text;
+            margin-top: .5rem;
+
+            /**
+            * Target focussed input
+            **/
+            &:focus {
+                outline: 0;
+                border-bottom: .3rem solid blue;
+            }
+        }
+
+        label {
+            text-transform: uppercase;
+            letter-spacing: 0.05rem;
+            max-width: 66.666%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            transform-origin: left bottom;
+            transform: translate(0, 0) scale(1);
+            cursor: pointer;
+            color: blue;
+            margin-bottom: 0.5rem;
+            margin-left: 0;
+        }
+    }
 }
